@@ -43,7 +43,7 @@ resource "docker_container" "jenkins" {
 
   volumes {
     container_path = "/var/jenkins_home"
-    host_path      = "${path.module}/jenkins_home"
+    host_path      = abspath("${path.module}/jenkins_home")
   }
 
   depends_on = [docker_image.jenkins_custom]
