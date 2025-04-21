@@ -9,7 +9,8 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
     python3-venv \
-    docker.io
+    docker.io \
+    && ln -s /usr/bin/python3 /usr/bin/python  # Crear alias para python
 
 # Crear un entorno virtual para Python
 RUN python3 -m venv /opt/venv
@@ -26,3 +27,6 @@ USER jenkins
 
 # Exponer el puerto necesario para Jenkins
 EXPOSE 8080
+
+# Establecer el PATH para que use el entorno virtual por defecto
+ENV PATH="/opt/venv/bin:$PATH"
