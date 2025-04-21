@@ -98,3 +98,7 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# Ignorar archivos generados por Jenkins
+docs/jenkins_home/
+
